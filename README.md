@@ -11,11 +11,19 @@ originally developed by the [Dell CloudEdge Solutions Team](http://dell.com/open
 
 ## Badges
 
-[![Build Status](https://travis-ci.org/crowbar/crowbar-core.svg?branch=master)](https://travis-ci.org/crowbar/crowbar-core)
-[![Code Climate](https://codeclimate.com/github/crowbar/crowbar-core/badges/gpa.svg)](https://codeclimate.com/github/crowbar/crowbar-core)
-[![Test Coverage](https://codeclimate.com/github/crowbar/crowbar-core/badges/coverage.svg)](https://codeclimate.com/github/crowbar/crowbar-core)
-[![Dependency Status](https://gemnasium.com/crowbar/crowbar-core.svg)](https://gemnasium.com/crowbar/crowbar-core)
+[![Build Status](https://travis-ci.org/crowbar/barclamp-suse-manager-client.svg?branch=release/tex/master)](https://travis-ci.org/crowbar/barclamp-suse-manager-client)
+[![Code Climate](https://codeclimate.com/github/crowbar/barclamp-suse-manager-client/badges/gpa.svg)](https://codeclimate.com/github/crowbar/barclamp-suse-manager-client)
+[![Test Coverage](https://codeclimate.com/github/crowbar/barclamp-suse-manager-client/badges/coverage.svg)](https://codeclimate.com/github/crowbar/barclamp-suse-manager-client)
+[![Dependency Status](https://gemnasium.com/crowbar/barclamp-suse-manager-client.svg)](https://gemnasium.com/crowbar/barclamp-suse-manager-client)
 [![Join the chat at https://gitter.im/crowbar/crowbar](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/crowbar/crowbar)
+
+## Steps to setup
+
+* Install SUSE Manager Server
+* Inside SUSE Manager, create an activation key. The activation key will be used in the barclamp's WebUI.
+* Download the `https://your-manager-server.example.com/pub/rhn-org-trusted-ssl-cert-*-*.noarch.rpm` file (check the version number) as `chef/cookbooks/suse-manager-client/files/default/ssl-cert.rpm` (in this barclamp's directory tree).
+* Reinstalling the barclamp might be required in order for crowbar to take notice of the new file. Do this with: `/opt/dell/bin/barclamp_install.rb --rpm suse-manager-client`
+* Now apply the barclamp from Crowbar's WebUI on selected nodes.
 
 ## Contact
 
